@@ -94,8 +94,8 @@ ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-source /usr/share/doc/fzf/examples/completion.zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/completion.zsh
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # fzf
 export FZF_DEFAULT_COMMAND='fdfind --type f --color=never --hidden'
