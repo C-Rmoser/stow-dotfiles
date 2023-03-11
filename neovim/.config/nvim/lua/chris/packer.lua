@@ -56,6 +56,9 @@ return require('packer').startup(function(use)
       tag = '0.1.1',
       config = function ()
           require("telescope").setup({
+              defaults = {
+                  path_display = {"truncate"},
+              },
               pickers = {
                   find_files = {
                       theme = "dropdown",
