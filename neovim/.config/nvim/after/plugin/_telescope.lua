@@ -10,7 +10,6 @@ vim.keymap.set('n', '<leader>fc', builtin.commands, {})
 -- Lsp
 vim.keymap.set('n', '<leader>gr', builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>gs', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, {})
+-- vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, {})
 
 require("telescope").load_extension('harpoon')
-
