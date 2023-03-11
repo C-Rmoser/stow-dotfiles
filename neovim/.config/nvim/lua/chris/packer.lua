@@ -264,6 +264,8 @@ return require('packer').startup(function(use)
 
   use "antoinemadec/FixCursorHold.nvim"
 
+  use "haydenmeade/neotest-jest"
+
   use "rouge8/neotest-rust"
 
   use {
