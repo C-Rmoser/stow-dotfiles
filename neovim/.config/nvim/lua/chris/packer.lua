@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
       config = function ()
           require("telescope").setup({
               defaults = {
-                  path_display = {"truncate"},
+                  path_display = {"truncate", truncate = 2},
               },
               pickers = {
                   find_files = {
