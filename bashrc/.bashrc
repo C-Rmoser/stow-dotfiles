@@ -65,7 +65,6 @@ unset color_prompt force_color_prompt
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
-
 fi
 
 # enable color support of ls and also add handy aliases
