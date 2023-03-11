@@ -11,8 +11,11 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'lua_ls',
-	'rust_analyzer'
+	'rust_analyzer',
+	'angularls',
 })
+
+lsp.skip_server_setup({'jdtls'})
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua_ls', {
@@ -28,7 +31,7 @@ lsp.configure('lua_ls', {
 lsp.on_attach(function(_, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
-  -- vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   -- vim.keymap.set("n", "<leader>gs", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
