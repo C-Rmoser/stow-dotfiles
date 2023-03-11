@@ -19,83 +19,6 @@ return require('packer').startup(function(use)
 
   use 'mfussenegger/nvim-jdtls'
 
-  use {
-      "windwp/nvim-autopairs",
-      config = function()
-          require("nvim-autopairs").setup {}
-      end
-  }
-
-  use {
-      'lewis6991/gitsigns.nvim',
-      config = function()
-          require('gitsigns').setup()
-      end
-  }
-
-  use 'nvim-tree/nvim-web-devicons'
-
-  use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons'},
-      config = function()
-          require('lualine').setup()
-      end
-  }
-
-  use
-  {
-      'akinsho/bufferline.nvim',
-      tag = "v3.*",
-      requires = 'nvim-tree/nvim-web-devicons',
-      config = function()
-          require("bufferline").setup()
-      end
-  }
-
-  use {
-      'nvim-telescope/telescope.nvim',
-      tag = '0.1.1',
-      config = function ()
-          require("telescope").setup({
-              defaults = {
-                  path_display = {"truncate"},
-              },
-              pickers = {
-                  find_files = {
-                      theme = "dropdown",
-                  },
-                  git_files = {
-                      theme = "dropdown",
-                  },
-                  live_grep = {
-                      theme = "dropdown",
-                  },
-                  buffers = {
-                      theme = "dropdown",
-                  },
-                  help_tags = {
-                      theme = "dropdown",
-                  },
-                  commands = {
-                      theme = "dropdown",
-                  },
-                  lsp_references = {
-                      theme = "dropdown",
-                  },
-                  lsp_document_symbols = {
-                      theme = "dropdown",
-                  },
-                  lsp_definitions = {
-                      theme = "dropdown",
-                  },
-              },
-          })
-      end,
-      -- or                            , branch = '0.1.x',
-      requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
   use({
       'rose-pine/neovim',
       as = 'rose-pine',
@@ -109,37 +32,6 @@ return require('packer').startup(function(use)
       end
   })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use({ 'ThePrimeagen/harpoon',
-	  config = function()
-		  require("harpoon").setup({
-		  })
-	  end
-  })
-  use( 'mbbill/undotree')
-  use( 'tpope/vim-fugitive')
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},             -- Required
-		  {'williamboman/mason.nvim'},           -- Optional
-		  {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},         -- Required
-		  {'hrsh7th/cmp-nvim-lsp'},     -- Required
-		  {'hrsh7th/cmp-buffer'},       -- Optional
-		  {'hrsh7th/cmp-path'},         -- Optional
-		  {'saadparwaiz1/cmp_luasnip'}, -- Optional
-		  {'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},             -- Required
-		  {'rafamadriz/friendly-snippets'}, -- Optional
-	  }
-  }
   use({
 	  "gbprod/cutlass.nvim",
 	  config = function()
@@ -151,132 +43,11 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use({
-      "kylechui/nvim-surround",
-      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-      config = function()
-          require("nvim-surround").setup({
-              -- Configuration here, or leave empty to use defaults
-          })
-      end
-  })
-
-  use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-          'nvim-tree/nvim-web-devicons', -- optional, for file icons
-      },
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
-
-  use {
-      "akinsho/toggleterm.nvim", tag = '*',
-      config = function()
-          require("toggleterm").setup({
-              open_mapping = [[<c-\>]],
-              direction = 'float',
-          })
-      end
-  }
-
-  use 'mfussenegger/nvim-dap'
-
   use {
       "terrortylor/nvim-comment",
       config = function()
           require('nvim_comment').setup()
       end
-  }
-
-  use {
-      'theHamsta/nvim-dap-virtual-text',
-      config = function ()
-          require("nvim-dap-virtual-text").setup()
-      end
-  }
-
-  use {
-      "rcarriga/nvim-dap-ui",
-      tag = 'v3.6.3',
-      requires = {"mfussenegger/nvim-dap"},
-      config = function()
-          require("dapui").setup({
-              controls = {
-                  element = "repl",
-                  enabled = true,
-                  icons = {
-                      disconnect = "",
-                      pause = "",
-                      play = "",
-                      run_last = "",
-                      step_back = "",
-                      step_into = "",
-                      step_out = "",
-                      step_over = "",
-                      terminate = ""
-                  }
-              },
-              element_mappings = {},
-              expand_lines = true,
-              floating = {
-                  border = "single",
-                  mappings = {
-                      close = { "q", "<Esc>" }
-                  }
-              },
-              force_buffers = true,
-              icons = {
-                  collapsed = "",
-                  current_frame = "",
-                  expanded = ""
-              },
-              layouts = { {
-                  elements = {  {
-                      id = "breakpoints",
-                      size = 0.5
-                  }, {
-                      id = "watches",
-                      size = 0.5
-                  } },
-                  position = "left",
-                  size = 40
-              }, {
-                  elements = { {
-                      id = "scopes",
-                      size = 1
-                  } },
-                  position = "bottom",
-                  size = 10
-              } },
-              mappings = {
-                  edit = "e",
-                  expand = { "<CR>", "<2-LeftMouse>" },
-                  open = "o",
-                  remove = "d",
-                  repl = "r",
-                  toggle = "t"
-              },
-              render = {
-                  indent = 1,
-                  max_value_lines = 100
-              }
-          })
-      end
-  }
-
-  use "antoinemadec/FixCursorHold.nvim"
-
-  use "haydenmeade/neotest-jest"
-
-  use "rouge8/neotest-rust"
-
-  use {
-      "nvim-neotest/neotest",
-      requires = {
-          "nvim-lua/plenary.nvim",
-          "nvim-treesitter/nvim-treesitter",
-          "antoinemadec/FixCursorHold.nvim"
-      },
   }
 
   use {
