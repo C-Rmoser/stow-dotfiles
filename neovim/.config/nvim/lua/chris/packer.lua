@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
       config = function ()
           require('telekasten').setup({
               home = vim.fn.expand('~/.config/zettelkasten'),
-              tag_notation = 'yaml-bare',
+              tag_notation = ':tag:',
               show_tags_theme = 'dropdown'
           })
       end
