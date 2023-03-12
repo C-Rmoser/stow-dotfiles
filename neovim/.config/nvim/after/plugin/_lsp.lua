@@ -13,6 +13,7 @@ lsp.ensure_installed({
 	'lua_ls',
 	'rust_analyzer',
 	'angularls',
+    'cssls'
 })
 
 lsp.skip_server_setup({'jdtls'})
@@ -26,6 +27,10 @@ lsp.configure('lua_ls', {
             }
         }
     }
+})
+
+lsp.configure('cssls', {
+    filetypes = { 'css', 'scss', 'sass', 'less' }
 })
 
 lsp.on_attach(function(_, bufnr)
@@ -89,7 +94,7 @@ lsp.setup_nvim_cmp({
 
             vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
             -- Kind icons
-            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) 
+            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             -- Source
             vim_item.menu = ({
                 -- buffer = "[Buffer]",
