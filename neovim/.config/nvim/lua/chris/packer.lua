@@ -17,6 +17,20 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use {
+      'renerocksai/telekasten.nvim',
+      requires = {'nvim-telescope/telescope.nvim'},
+      config = function ()
+          require('telekasten').setup({
+              home = vim.fn.expand('~/.config/zettelkasten'),
+              tag_notation = 'yaml-bare',
+              show_tags_theme = 'dropdown'
+          })
+      end
+  }
+
+  use 'nvim-lua/popup.nvim'
+
   use 'mfussenegger/nvim-jdtls'
 
   use {
@@ -96,7 +110,7 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
+  use{
       'rose-pine/neovim',
       as = 'rose-pine',
       config = function()
@@ -107,7 +121,7 @@ return require('packer').startup(function(use)
           })
           vim.cmd('colorscheme rose-pine')
       end
-  })
+  }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use({ 'ThePrimeagen/harpoon',
