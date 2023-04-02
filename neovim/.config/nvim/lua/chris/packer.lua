@@ -121,6 +121,11 @@ return require('packer').startup(function(use)
   }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use ({'nvim-treesitter/nvim-treesitter-context',
+	  config = function()
+          require'treesitter-cotnext'.setup()
+	  end
+  })
   use({ 'ThePrimeagen/harpoon',
 	  config = function()
 		  require("harpoon").setup({
