@@ -112,7 +112,7 @@ return require('packer').startup(function(use)
       as = 'rose-pine',
       config = function()
           require("rose-pine").setup({
-              -- dark_variant = 'moon',
+              dark_variant = 'moon',
               disable_italics = false,
               disable_background = true,
           })
@@ -121,11 +121,7 @@ return require('packer').startup(function(use)
   }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use ({'nvim-treesitter/nvim-treesitter-context',
-	  config = function()
-          require'treesitter-cotnext'.setup()
-	  end
-  })
+  use 'nvim-treesitter/nvim-treesitter-context'
   use({ 'ThePrimeagen/harpoon',
 	  config = function()
 		  require("harpoon").setup({
