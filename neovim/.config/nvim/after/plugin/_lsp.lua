@@ -13,7 +13,8 @@ lsp.ensure_installed({
 	'lua_ls',
 	'rust_analyzer',
 	'angularls',
-    'cssls'
+    'cssls',
+    'emmet_ls'
 })
 
 lsp.skip_server_setup({'jdtls'})
