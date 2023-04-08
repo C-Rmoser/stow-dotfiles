@@ -1,5 +1,3 @@
-vim.opt.signcolumn = 'yes'
-
 local lsp = require('lsp-zero').preset({
   name = 'minimal',
   set_lsp_keymaps = false,
