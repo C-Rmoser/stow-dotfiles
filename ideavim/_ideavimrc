@@ -34,43 +34,37 @@ set ideastatusicon=gray
 set idearefactormode=keep
 set idearefactormode=select
 
-" Jumplist mutations
-" nnoremap k mTk
-" nnoremap j mYj
-" nnoremap s m
-
-
-
+" Center screen when searching
 nmap n nzz
 nmap N Nzz
 
 " Keep cursor where it is when concatenate lines
 nnoremap J mzJ`z
 
-" nnoremap J mzJ`z
-
 imap jk <Esc>
+" Make Y copy current line from cursor to end
 nmap Y y$
 
+" Reload _ideavimrc
 map <leader>sm :source ~/_ideavimrc<CR> 
-" nmap <C-o> :action JumpToLastChange <CR>
-" nmap <C-i> :action JumpToNextChange <CR>
 
 nnoremap gcc :action CommentByLineComment<CR>
 vnoremap gc :action CommentByLineComment<CR>
 
 nmap <leader>dd <Action>(Debug)
 nmap <leader>ds <Action>(Stop)
+" Run last run configuration (also works for unit tests)
 nmap <leader>dnr <Action>(Run)
 nmap <leader>dnb <Action>(BuildButton)
 nmap <leader>ds <Action>(Stop)
 nmap <leader>db <Action>(ToggleLineBreakpoint)
+" Show code actions
 nmap <leader>c <Action>(ShowIntentionActions)
 
 nmap <leader>gd <Action>(GoToDeclaration)
 nmap <leader>rp <Action>(Javascript.Linters.EsLint.Fix)
 
-" Bookmarks
+" Use global book marks 
 nmap <leader>dm <Action>(ToggleBookmark)
 nnoremap ma mA
 nnoremap 'a 'A
