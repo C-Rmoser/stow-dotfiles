@@ -52,6 +52,9 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set("n", "<leader>rc", "<cmd>LspZeroFormat<Cr>")
   vim.keymap.set("n", "<leader>dw", "<Cmd>lua require('dapui').eval()<CR>")
   vim.diagnostic.config({ virtual_text = true, signs = false, underline = false });
+  vim.keymap.set('n', '<space>rc', function()
+      vim.lsp.buf.format { async = true }
+  end, opts)
 end)
 
 local cmp = require('cmp')
