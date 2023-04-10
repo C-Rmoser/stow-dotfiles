@@ -159,6 +159,11 @@ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 alias ansibleconfig="nvim ~/ansible.yml"
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
