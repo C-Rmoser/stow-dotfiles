@@ -15,7 +15,7 @@ end
 -- attaches to the current buffer
 local on_attach = function(_, bufnr)
   local opts = {buffer = bufnr, remap = false}
-  
+
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   -- vim.keymap.set("n", "<leader>gs", function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -41,18 +41,18 @@ local on_attach = function(_, bufnr)
   -- nnoremap('gi', vim.lsp.buf.implementation, bufopts, "Go to implementation")
   -- nnoremap('K', vim.lsp.buf.hover, bufopts, "Hover text")
   -- nnoremap('<C-k>', vim.lsp.buf.signature_help, bufopts, "Show signature")
-  nnoremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
-  nnoremap('<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
-  vim.keymap.set('v', "<space>ca", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
+  -- nnoremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
+  -- nnoremap('<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
+  vim.keymap.set('v', "<space>c", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
     { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
-  nnoremap('<space>f', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
+  -- nnoremap('<leader>rc', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
 
   -- Java extensions provided by jdtls
   nnoremap("<leader>ro", jdtls.organize_imports, bufopts, "Organize imports")
-  nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
-  nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
-  vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
-    { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
+  -- nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
+  -- nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
+  -- vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+  --   { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
 end
 
 local config = {
@@ -79,9 +79,7 @@ local config = {
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {
         '/home/crohrmoser/tools/jdtls-eclipse/bin/jdtls',
-        -- '-javaagent:', '/home/crohrmoser/.local/share/eclipse/lombok.jar',
         '--jvm-arg=-javaagent:/home/crohrmoser/.local/share/eclipse/lombok.jar',
-        -- '-Xbootclasspath/a:', '/home/crohrmoser/.local/share/eclipse/lombok.jar',
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
