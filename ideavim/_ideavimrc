@@ -64,6 +64,8 @@ nmap <leader>c <Action>(ShowIntentionActions)
 nmap <leader>gd <Action>(GoToDeclaration)
 nmap <leader>rp <Action>(Javascript.Linters.EsLint.Fix)
 
+imap ;; <Esc>A;<Esc>
+
 " Use global book marks 
 nmap <leader>dm <Action>(ToggleBookmark)
 nnoremap ma mA
