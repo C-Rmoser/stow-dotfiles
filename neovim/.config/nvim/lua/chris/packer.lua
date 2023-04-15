@@ -293,9 +293,9 @@ return require('packer').startup(function(use)
 
     use "antoinemadec/FixCursorHold.nvim"
 
-    use "haydenmeade/neotest-jest"
+    use "nvim-neotest/neotest-vim-test"
 
-    use "rouge8/neotest-rust"
+    use "haydenmeade/neotest-jest"
 
     use {
         "nvim-neotest/neotest",
@@ -305,6 +305,10 @@ return require('packer').startup(function(use)
             "antoinemadec/FixCursorHold.nvim"
         },
     }
+
+    use "rouge8/neotest-rust"
+
+    use "vim-test/vim-test"
 
     use {
         "karb94/neoscroll.nvim",
