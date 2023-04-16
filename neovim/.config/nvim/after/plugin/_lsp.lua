@@ -103,12 +103,7 @@ lsp.setup_nvim_cmp({
             -- Kind icons
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             -- Source
-            vim_item.menu = ({
-                    -- buffer = "[Buffer]",
-                    -- nvim_lsp = "[LSP]",
-                    -- luasnip = "[LuaSnip]",
-                    -- nvim_lua = "[Lua]",
-                })
+            vim_item.menu = ({})
                 [entry.source.name]
             return vim_item
         end
@@ -116,3 +111,9 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.setup()
+
+local cmp = require 'cmp'
+
+cmp.setup({
+    experimental = { ghost_text = true },
+})
