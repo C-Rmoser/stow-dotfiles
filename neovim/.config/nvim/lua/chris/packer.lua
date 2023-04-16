@@ -135,7 +135,9 @@ return require('packer').startup(function(use)
     }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+
     use 'nvim-treesitter/nvim-treesitter-context'
+
     use({
         'ThePrimeagen/harpoon',
         config = function()
@@ -143,8 +145,11 @@ return require('packer').startup(function(use)
             })
         end
     })
+
     use('mbbill/undotree')
+
     use('tpope/vim-fugitive')
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -167,6 +172,7 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
+
     use({
         "gbprod/cutlass.nvim",
         config = function()
