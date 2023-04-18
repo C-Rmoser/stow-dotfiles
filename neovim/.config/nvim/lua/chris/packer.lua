@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     use {
         'renerocksai/telekasten.nvim',
         requires = { 'nvim-telescope/telescope.nvim' },

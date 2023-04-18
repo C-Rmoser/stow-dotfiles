@@ -17,6 +17,12 @@ lsp.ensure_installed({
 
 lsp.skip_server_setup({ 'jdtls' })
 
+require'lspconfig'.tsserver.setup{
+  on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+  end,
+}
+
 -- Fix Undefined global 'vim'
 lsp.configure('lua_ls', {
     settings = {
@@ -49,10 +55,9 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "<leader>ds", function() vim.diagnostic.enable() end, { buffer = 0, silent = true })
     vim.keymap.set("n", "<leader>dh", function() vim.diagnostic.disable() end, { buffer = 0, silent = true })
 
-    vim.keymap.set("n", "<leader>rc", "<cmd>LspZeroFormat<Cr>")
     vim.keymap.set("n", "<leader>dw", "<Cmd>lua require('dapui').eval()<CR>")
     vim.diagnostic.config({ virtual_text = true, signs = false, underline = false });
-    vim.keymap.set('n', '<space>rc', function()
+    vim.keymap.set('n', '<leader>rc', function()
         vim.lsp.buf.format { async = true }
     end, opts)
 end)
@@ -116,4 +121,12 @@ local cmp = require 'cmp'
 
 cmp.setup({
     experimental = { ghost_text = true },
+})
+
+local null_ls = require('null-ls')
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.prettier,
+    }
 })
