@@ -15,5 +15,5 @@ vim.keymap.set('n', '<leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>', { noremap = 
 vim.keymap.set('n', '<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>', { noremap = true, silent = true})
 vim.keymap.set('n', '<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>', { noremap = true, silent = true})
 
-vim.keymap.set('n', '<leader><', '<Cmd>BufferLineMovePrev<CR>', { noremap = true, silent = true})
-vim.keymap.set('n', '<leader>>', '<Cmd>BufferLineMoveNext<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<leader>,', '<Cmd>:BufferLineCyclePrev<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<leader>.', '<Cmd>:BufferLineCycleNext<CR>', { noremap = true, silent = true})
