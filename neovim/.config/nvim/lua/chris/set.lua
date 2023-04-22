@@ -4,10 +4,10 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Highlight on yank
 augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
-  group = 'YankHighlight',
-  callback = function()
-    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '50' })
-  end
+    group = 'YankHighlight',
+    callback = function()
+        vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '50' })
+    end
 })
 
 vim.opt.nu = true
@@ -29,7 +29,7 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.ignorecase = true 
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
@@ -43,69 +43,3 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard = "unnamedplus"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

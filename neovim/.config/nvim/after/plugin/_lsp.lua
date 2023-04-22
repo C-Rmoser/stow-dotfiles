@@ -17,10 +17,10 @@ lsp.ensure_installed({
 
 lsp.skip_server_setup({ 'jdtls' })
 
-require'lspconfig'.tsserver.setup{
-  on_attach = function(client)
+require 'lspconfig'.tsserver.setup {
+    on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
-  end,
+    end,
 }
 
 -- Fix Undefined global 'vim'

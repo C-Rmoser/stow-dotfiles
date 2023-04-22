@@ -1,8 +1,6 @@
 vim.keymap.set("n", "<leader>ta", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
 vim.keymap.set("n", "<leader>tn", "<cmd>lua require('neotest').run.run()<CR>")
-vim.keymap.set("n", "<leader>to", "<cmd>lua require('neotest').summary.open({ enter = true })<CR>")
-vim.keymap.set("n", "<leader>tc", "<cmd>lua require('neotest').summary.close()<CR>")
-vim.keymap.set("n", "<leader>tt", "<cmd>lua require('neotest').summary.toggle()<CR>")
+vim.keymap.set("n", "<leader>to", "<cmd>lua require('neotest').summary.toggle()<CR>")
 vim.keymap.set("n", "<leader>ts", "<cmd>lua require('neotest').run.stop()<CR>")
 vim.keymap.set("n", "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR>")
 
@@ -17,6 +15,9 @@ require("neotest").setup({
                 return vim.fn.getcwd()
             end,
         }),
+        -- require("neotest-vim-test")({
+        -- ignore_file_types = {  "ts", "rust", "vim", "lua" },
+        -- }),
     },
     status = {
         enabled = true,
