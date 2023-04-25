@@ -18,6 +18,7 @@ require("neotest").setup({
         -- require("neotest-vim-test")({
         -- ignore_file_types = {  "ts", "rust", "vim", "lua" },
         -- }),
+        require("neotest-vim-test")({ allow_file_types = { "java" } }),
     },
     status = {
         enabled = true,

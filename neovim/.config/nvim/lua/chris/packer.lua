@@ -293,14 +293,13 @@ return require('packer').startup(function(use)
 
     use "nvim-neotest/neotest-vim-test"
 
-    use "haydenmeade/neotest-jest"
-
     use {
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim"
+            "antoinemadec/FixCursorHold.nvim",
+            "haydenmeade/neotest-jest"
         },
     }
 
