@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use 'christoomey/vim-tmux-navigator'
+
     use 'jose-elias-alvarez/null-ls.nvim'
 
     use {
