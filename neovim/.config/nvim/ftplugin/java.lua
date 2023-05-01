@@ -36,23 +36,13 @@ local on_attach = function(_, bufnr)
 
   -- Regular Neovim LSP client keymappings
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  -- nnoremap('gD', vim.lsp.buf.declaration, bufopts, "Go to declaration")
-  -- nnoremap('gd', vim.lsp.buf.definition, bufopts, "Go to definition")
-  -- nnoremap('gi', vim.lsp.buf.implementation, bufopts, "Go to implementation")
-  -- nnoremap('K', vim.lsp.buf.hover, bufopts, "Hover text")
-  -- nnoremap('<C-k>', vim.lsp.buf.signature_help, bufopts, "Show signature")
-  -- nnoremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
-  -- nnoremap('<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
   vim.keymap.set('v', "<space>c", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
     { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
-  -- nnoremap('<leader>rc', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
 
   -- Java extensions provided by jdtls
   nnoremap("<leader>ro", jdtls.organize_imports, bufopts, "Organize imports")
-  -- nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
-  -- nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
-  -- vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
-  --   { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
+  nnoremap("<leader>tda", jdtls.test_class, bufopts, "Test class")
+  nnoremap("<leader>tdn", jdtls.test_nearest_method, bufopts, "Test nearest method")
 end
 
 local config = {
@@ -98,4 +88,21 @@ local config = {
     },
 }
 
-require('jdtls').start_or_attach(config)
+local bundles = {
+    vim.fn.glob("/home/crohrmoser/tools/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1)
+};
+
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/crohrmoser/tools/vscode-java-test/server/*.jar", 1), "\n"))
+
+config['init_options'] = {
+  bundles = bundles;
+}
+
+jdtls.start_or_attach(config)
+jdtls.setup_dap { hotcodereplace = "auto" }
+
+vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
+vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
+vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
+vim.cmd "command! -buffer JdtRefreshDebugConfigs lua require('jdtls.dap').setup_dap_main_class_configs()"
