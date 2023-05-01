@@ -1,3 +1,44 @@
+require("telescope").setup({
+    defaults = {
+        path_display = { "truncate", truncate = 2 },
+    },
+    pickers = {
+        find_files = {
+            theme = "dropdown",
+        },
+        git_files = {
+            theme = "dropdown",
+        },
+        live_grep = {
+            theme = "dropdown",
+        },
+        buffers = {
+            theme = "dropdown",
+        },
+        help_tags = {
+            theme = "dropdown",
+        },
+        commands = {
+            theme = "dropdown",
+        },
+        lsp_references = {
+            theme = "dropdown",
+        },
+        lsp_document_symbols = {
+            theme = "dropdown",
+        },
+        lsp_definitions = {
+            theme = "dropdown",
+        },
+    },
+    extensions = {
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown {}
+        }
+    }
+})
+
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fa', builtin.find_files, {})
 vim.keymap.set('n', '<leader>ff', builtin.git_files, {})

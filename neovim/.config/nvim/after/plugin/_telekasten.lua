@@ -1,3 +1,9 @@
+require('telekasten').setup({
+    home = vim.fn.expand('~/.config/zettelkasten'),
+    tag_notation = ':tag:',
+    show_tags_theme = 'dropdown'
+})
+
 vim.keymap.set("n", "<leader>zo", "<cmd>Telekasten panel<CR>")
 vim.keymap.set("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
 vim.keymap.set("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>")
