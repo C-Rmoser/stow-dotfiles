@@ -119,11 +119,17 @@ return require('packer').startup(function(use)
                         theme = "dropdown",
                     },
                 },
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown { }
+                    }
+                }
             })
         end,
-        -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
 
     use {
         'rose-pine/neovim',

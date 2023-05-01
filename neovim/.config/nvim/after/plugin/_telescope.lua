@@ -15,3 +15,4 @@ vim.keymap.set('n', '<leader>gs', builtin.lsp_document_symbols, {})
 -- vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, {})
 
 require("telescope").load_extension('harpoon')
+require("telescope").load_extension("ui-select")
