@@ -1,34 +1,23 @@
 require("telescope").setup({
     defaults = {
+        layout_strategy = "flex",
         path_display = { "truncate", truncate = 2 },
-    },
-    pickers = {
-        find_files = {
-            theme = "dropdown",
-        },
-        git_files = {
-            theme = "dropdown",
-        },
-        live_grep = {
-            theme = "dropdown",
-        },
-        buffers = {
-            theme = "dropdown",
-        },
-        help_tags = {
-            theme = "dropdown",
-        },
-        commands = {
-            theme = "dropdown",
-        },
-        lsp_references = {
-            theme = "dropdown",
-        },
-        lsp_document_symbols = {
-            theme = "dropdown",
-        },
-        lsp_definitions = {
-            theme = "dropdown",
+        layout_config = {
+            flex = {
+                flip_columns = 150,
+            },
+            horizontal = {
+                height = 0.95,
+                preview_cutoff = 150,
+                prompt_position = "bottom",
+                width = 0.95,
+            },
+            vertical = {
+                height = 0.95,
+                preview_cutoff = 0,
+                prompt_position = "bottom",
+                width = 0.95,
+            }
         },
     },
     extensions = {
