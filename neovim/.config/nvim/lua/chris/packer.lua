@@ -1,12 +1,12 @@
 local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+	local fn = vim.fn
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
 end
 
 ensure_packer()
@@ -14,173 +14,175 @@ ensure_packer()
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
 
-    use 'christoomey/vim-tmux-navigator'
+	use 'folke/tokyonight.nvim'
 
-    use 'jose-elias-alvarez/null-ls.nvim'
+	use 'christoomey/vim-tmux-navigator'
 
-    use {
-        'renerocksai/telekasten.nvim',
-        requires = { 'nvim-telescope/telescope.nvim' },
-    }
+	use 'jose-elias-alvarez/null-ls.nvim'
 
-    use 'nvim-lua/popup.nvim'
+	use {
+		'renerocksai/telekasten.nvim',
+		requires = { 'nvim-telescope/telescope.nvim' },
+	}
 
-    use 'mfussenegger/nvim-jdtls'
+	use 'nvim-lua/popup.nvim'
 
-    use {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup {}
-        end
-    }
+	use 'mfussenegger/nvim-jdtls'
 
-    use {
-        'lewis6991/gitsigns.nvim',
-    }
+	use {
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup {}
+		end
+	}
 
-    use 'nvim-tree/nvim-web-devicons'
+	use {
+		'lewis6991/gitsigns.nvim',
+	}
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function()
-            require('lualine').setup()
-        end
-    }
+	use 'nvim-tree/nvim-web-devicons'
 
-    use
-    {
-        'akinsho/bufferline.nvim',
-        tag = "v3.*",
-        requires = 'nvim-tree/nvim-web-devicons',
-    }
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		config = function()
+			require('lualine').setup()
+		end
+	}
 
-    use {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+	use
+	{
+		'akinsho/bufferline.nvim',
+		tag = "v3.*",
+		requires = 'nvim-tree/nvim-web-devicons',
+	}
 
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
+	use {
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.1',
+		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
 
-    use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            require("rose-pine").setup({
-                dark_variant = 'moon',
-                disable_italics = false,
-                disable_background = true,
-            })
-            vim.cmd('colorscheme rose-pine')
-        end
-    }
+	use { 'nvim-telescope/telescope-ui-select.nvim' }
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+	use {
+		'rose-pine/neovim',
+		as = 'rose-pine',
+		config = function()
+			require("rose-pine").setup({
+				dark_variant = 'moon',
+				disable_italics = false,
+				disable_background = true,
+			})
+			vim.cmd('colorscheme rose-pine')
+		end
+	}
 
-    use 'nvim-treesitter/nvim-treesitter-context'
+	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
-    use({
-        'ThePrimeagen/harpoon',
-        config = function()
-            require("harpoon").setup({})
-        end
-    })
+	use 'nvim-treesitter/nvim-treesitter-context'
 
-    use('mbbill/undotree')
+	use({
+		'ThePrimeagen/harpoon',
+		config = function()
+			require("harpoon").setup({})
+		end
+	})
 
-    use('tpope/vim-fugitive')
+	use('mbbill/undotree')
 
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+	use('tpope/vim-fugitive')
 
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },         -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-            { 'hrsh7th/cmp-buffer' },       -- Optional
-            { 'hrsh7th/cmp-path' },         -- Optional
-            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v1.x',
+		requires = {
+			-- LSP Support
+			{ 'neovim/nvim-lspconfig' }, -- Required
+			{ 'williamboman/mason.nvim' }, -- Optional
+			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },             -- Required
-            { 'rafamadriz/friendly-snippets' }, -- Optional
-        }
-    }
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' }, -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
+			{ 'hrsh7th/cmp-buffer' }, -- Optional
+			{ 'hrsh7th/cmp-path' }, -- Optional
+			{ 'saadparwaiz1/cmp_luasnip' }, -- Optional
+			{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
-    use({
-        "gbprod/cutlass.nvim",
-        config = function()
-            require("cutlass").setup({})
-        end
-    })
+			-- Snippets
+			{ 'L3MON4D3/LuaSnip' }, -- Required
+			{ 'rafamadriz/friendly-snippets' }, -- Optional
+		}
+	}
 
-    use({
-        "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({})
-        end
-    })
+	use({
+		"gbprod/cutlass.nvim",
+		config = function()
+			require("cutlass").setup({})
+		end
+	})
 
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-        },
-        tag = 'nightly'
-    }
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({})
+		end
+	})
 
-    use {'mfussenegger/nvim-dap'}
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons',
+		},
+		tag = 'nightly'
+	}
 
-    use {
-        "terrortylor/nvim-comment",
-        config = function()
-            require('nvim_comment').setup()
-        end
-    }
+	use { 'mfussenegger/nvim-dap' }
 
-    use {
-        'theHamsta/nvim-dap-virtual-text',
-        config = function()
-            require("nvim-dap-virtual-text").setup()
-        end
-    }
+	use {
+		"terrortylor/nvim-comment",
+		config = function()
+			require('nvim_comment').setup()
+		end
+	}
 
-    use {
-        "rcarriga/nvim-dap-ui",
-        tag = 'v3.6.3',
-        requires = { "mfussenegger/nvim-dap" },
-    }
+	use {
+		'theHamsta/nvim-dap-virtual-text',
+		config = function()
+			require("nvim-dap-virtual-text").setup()
+		end
+	}
 
-    use "antoinemadec/FixCursorHold.nvim"
+	use {
+		"rcarriga/nvim-dap-ui",
+		tag = 'v3.6.3',
+		requires = { "mfussenegger/nvim-dap" },
+	}
 
-    use "nvim-neotest/neotest-vim-test"
+	use "antoinemadec/FixCursorHold.nvim"
 
-    use {
-        "nvim-neotest/neotest",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
-            "haydenmeade/neotest-jest"
-        },
-    }
+	use "nvim-neotest/neotest-vim-test"
 
-    use "rouge8/neotest-rust"
+	use {
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"haydenmeade/neotest-jest"
+		},
+	}
 
-    use "vim-test/vim-test"
+	use "rouge8/neotest-rust"
 
-    use {
-        "karb94/neoscroll.nvim",
-    }
+	use "vim-test/vim-test"
+
+	use {
+		"karb94/neoscroll.nvim",
+	}
 end)
