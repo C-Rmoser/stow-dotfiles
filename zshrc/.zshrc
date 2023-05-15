@@ -6,7 +6,8 @@ antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-autosuggestions
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-
+# Alias tips
+antigen bundle djui/alias-tips
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 # zsh z
@@ -159,6 +160,8 @@ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 alias ansibleconfig="nvim ~/ansible.yml"
 
+alias mvnrundev="mvn spring-boot:run -Pwwi -Ph2 -Dspring-boot.run.arguments=\"--spring.profiles.active=dev,dev-h2,dev-testdata\"mvn spring-boot:run -Pwwi -Ph2 -Dspring-boot.run.arguments=\"--spring.profiles.active=dev,dev-h2,dev-testdata\""
+alias mvnwwi="mvn -Pwwi -P'!deploy-package' -P'!docker'"
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
