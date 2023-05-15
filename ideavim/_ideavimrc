@@ -34,7 +34,6 @@ set ideastatusicon=gray
 set idearefactormode=keep
 set idearefactormode=select
 
-" Center screen when searching
 nmap n nzz
 nmap N Nzz
 
@@ -42,31 +41,27 @@ nmap N Nzz
 nnoremap J mzJ`z
 
 imap jk <Esc>
-" Make Y copy current line from cursor to end
 nmap Y y$
 
-" Reload _ideavimrc
 map <leader>sm :source ~/_ideavimrc<CR> 
+" nmap <C-o> :action JumpToLastChange <CR>
+" nmap <C-i> :action JumpToNextChange <CR>
 
 nnoremap gcc :action CommentByLineComment<CR>
 vnoremap gc :action CommentByLineComment<CR>
 
 nmap <leader>dd <Action>(Debug)
 nmap <leader>ds <Action>(Stop)
-" Run last run configuration (also works for unit tests)
 nmap <leader>dnr <Action>(Run)
 nmap <leader>dnb <Action>(BuildButton)
 nmap <leader>ds <Action>(Stop)
 nmap <leader>db <Action>(ToggleLineBreakpoint)
-" Show code actions
 nmap <leader>c <Action>(ShowIntentionActions)
 
 nmap <leader>gd <Action>(GoToDeclaration)
 nmap <leader>rp <Action>(Javascript.Linters.EsLint.Fix)
 
-imap ;; <Esc>A;<Esc>
-
-" Use global book marks 
+" Bookmarks
 nmap <leader>dm <Action>(ToggleBookmark)
 nnoremap ma mA
 nnoremap 'a 'A
@@ -76,19 +71,11 @@ nnoremap md mD
 nnoremap 'd 'D
 nnoremap mf mF
 nnoremap 'f 'F
-" nnoremap stj 'J
-" nnoremap sk mK
-" nnoremap stk 'K
-" nnoremap sl mL
-" nnoremap stl 'L
-" nnoremap sd :action ToggleBookmark<CR>
 
-nmap <leader>ff <Action>(GotoFile)
-nmap <leader>fp <Action>(FindInPath)
-nmap <leader>fe <Action>(SearchEverywhere)
 nmap <c-p> <Action>(GotoFile)
+nmap <leader>fg <Action>(FindInPath)
 nmap <leader>wt <C-6>
-" nmap <leader>ff <Action>(FileStructurePopup)
+nmap <leader>ff <Action>(FileStructurePopup)
 nmap <leader>fo <Action>(RecentLocations)
 nmap <leader>fl <Action>(RecentFiles)
 
@@ -98,10 +85,7 @@ nmap K <Action>(QuickJavaDoc)
 
 nmap <leader>e <Action>(ActivateProjectToolWindow)
 
-" nmap <leader>ft <Action>(TailwindAction)
-
 " Tabs
-
 nmap <leader>wa <Action>(CloseAllEditorsButActive)
 nmap <leader>ww <Action>(CloseEditor)
 nmap <leader>q <Action>(CloseEditor)
@@ -123,8 +107,6 @@ nmap <leader>7 <Action>(GoToTab7)
 nmap <leader>8 <Action>(GoToTab8)
 nmap <leader>9 <Action>(GoToTab9)
 
-" nnoremap <leader>m m
-
 " Yank into black hole register by default
 nnoremap x "_x
 nnoremap d "_d
@@ -133,13 +115,12 @@ nnoremap D "_D
 vnoremap d "_d
 nnoremap c "_c
 vnoremap c "_c
-vnoremap p "_dP
-
 " Change s to delete command
 nnoremap s d
 vnoremap s d
 nnoremap ss dd
 nnoremap S D
+vnoremap p "_dP
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
@@ -165,10 +146,10 @@ nnoremap <leader>zo :action ExpandAllRegions<CR>
 nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>ro :action OptimizeImports<CR>
 
-nnoremap <leader>ta :action RiderUnitTestRunSolutionAction<CR>
+nnoremap <leader>ta :action RunClass<CR>
 nnoremap <leader>tf :action RerunFailedTests<CR>
 nnoremap <leader>tl :action Rerun<CR>
-nnoremap <leader>tc :action RunClass<CR>
+" nnoremap <leader>tc :action RunClass<CR>
 
 nnoremap <leader>l :action RecentLocations<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
@@ -181,7 +162,7 @@ nnoremap <leader>fs :action FileStructurePopup<CR>
 nnoremap gt :action GotoTest<CR>
 " nnoremap gb :action Back<CR>
 " nnoremap gf :action Forward<CR>
-nnoremap <leader>gf :action SelectInProjectView<CR>
+nnoremap <leader>gp :action SelectInProjectView<CR>
 
 nnoremap ge :action GotoNextError<CR>
 nnoremap gE :action GotoPreviousError<CR>
