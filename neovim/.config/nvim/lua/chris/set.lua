@@ -4,10 +4,10 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Highlight on yank
 augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
-    group = 'YankHighlight',
-    callback = function()
-        vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '50' })
-    end
+		group = 'YankHighlight',
+		callback = function()
+		vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '50' })
+		end
 })
 
 vim.opt.nu = true
