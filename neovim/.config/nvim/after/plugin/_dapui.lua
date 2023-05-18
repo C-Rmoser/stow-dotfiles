@@ -30,24 +30,24 @@ dapui.setup({
         current_frame = "",
         expanded = ""
     },
-    layouts = { {
-        elements = { {
-            id = "breakpoints",
-            size = 0.5
-        }, {
-            id = "watches",
-            size = 0.5
-        } },
-        position = "left",
-        size = 40
-    }, {
-        elements = { {
-            id = "scopes",
-            size = 1
-        } },
-        position = "bottom",
-        size = 10
-    } },
+    -- layouts = { {
+    --     elements = { {
+    --         id = "breakpoints",
+    --         size = 0.5
+    --     }, {
+    --         id = "watches",
+    --         size = 0.5
+    --     } },
+    --     position = "left",
+    --     size = 40
+    -- }, {
+    --     elements = { {
+    --         id = "scopes",
+    --         size = 1
+    --     } },
+    --     position = "bottom",
+    --     size = 10
+    -- } },
     mappings = {
         edit = "e",
         expand = { "<CR>", "<2-LeftMouse>" },
