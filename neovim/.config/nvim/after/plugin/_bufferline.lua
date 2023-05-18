@@ -1,8 +1,19 @@
 require("bufferline").setup({
-    options = {
-        numbers = 'ordinal',
-        diagnostics = "nvim_lsp",
-    }
+	highlights = {
+	},
+	options = {
+		numbers = 'ordinal',
+		max_name_length = 35,
+		diagnostics = "nvim_lsp",
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "File Explorer",
+				highlight = "Directory",
+				separator = true,
+			}
+		}
+	},
 })
 
 vim.keymap.set('n', '<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>', { noremap = true, silent = true })
@@ -22,4 +33,4 @@ vim.keymap.set('n', '<leader><', '<Cmd>BufferLineMovePrev<CR>', { noremap = true
 vim.keymap.set('n', '<leader>>', '<Cmd>BufferLineMoveNext<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>wa', '<Cmd>BufferLineCloseRight<CR><Cmd>BufferLineCloseLeft<CR>',
-{ noremap = true, silent = true })
+	{ noremap = true, silent = true })
