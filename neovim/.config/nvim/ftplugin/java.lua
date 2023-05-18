@@ -80,6 +80,12 @@ local config = {
 	},
 	settings = {
 		java = {
+			eclipse = {
+				downloadSources = true
+			},
+			maven = {
+				downloadSources = true
+			},
 			completion = {
 				importOrder = { "java", "javax", "de.wwag" },
 			},
