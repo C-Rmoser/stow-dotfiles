@@ -1,5 +1,9 @@
 require("bufferline").setup({
 	highlights = {
+		offset_separator = {
+			fg = '#495156',
+			bg = '#272E33'
+		},
 	},
 	options = {
 		numbers = 'ordinal',
