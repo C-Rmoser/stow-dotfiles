@@ -13,16 +13,15 @@ end
 
 -- Disable semantic highlighting
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		client.server_capabilities.semanticTokensProvider = nil
+	end,
 });
 
 -- The on_attach function is used to set key maps after the language server
 -- attaches to the current buffer
 local on_attach = function(_, bufnr)
-
 	local opts = { buffer = bufnr, remap = false }
 
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -86,6 +85,15 @@ local config = {
 			starThreshold = 99,
 			staticStarThreshold = 99,
 		},
+	},
+	capabilities = {
+		textDocument = {
+			completion = {
+				completionItem = {
+					snippetSupport = true
+				}
+			}
+		}
 	},
 	settings = {
 		java = {
