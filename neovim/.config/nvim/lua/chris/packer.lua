@@ -17,7 +17,22 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-	use 'folke/tokyonight.nvim'
+	use 'sainnhe/everforest'
+
+	use {
+		'nvim-treesitter/nvim-treesitter-refactor',
+		config = function()
+			require 'nvim-treesitter.configs'.setup {
+				refactor = {
+					highlight_definitions = {
+						enable = true,
+						-- Set to false if you have an `updatetime` of ~100.
+						clear_on_cursor_move = true,
+					},
+				},
+			}
+		end
+	}
 
 	use 'christoomey/vim-tmux-navigator'
 
