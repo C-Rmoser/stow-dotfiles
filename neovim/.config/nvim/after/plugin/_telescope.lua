@@ -1,30 +1,35 @@
 require("telescope").setup({
-    defaults = {
-        layout_strategy = "flex",
-        path_display = { "truncate", truncate = 2 },
-        layout_config = {
-            flex = {
-                flip_columns = 150,
-            },
-            horizontal = {
-                height = 0.95,
-                preview_cutoff = 150,
-                prompt_position = "bottom",
-                width = 0.95,
-            },
-            vertical = {
-                height = 0.95,
-                preview_cutoff = 0,
-                prompt_position = "bottom",
-                width = 0.95,
-            }
-        },
-    },
-    extensions = {
-        ["ui-select"] = {
-            require("telescope.themes").get_dropdown {}
-        }
-    }
+	defaults = {
+		layout_strategy = "flex",
+		path_display = { "truncate", truncate = 2 },
+		layout_config = {
+			flex = {
+				flip_columns = 150,
+			},
+			horizontal = {
+				height = 0.95,
+				preview_cutoff = 150,
+				prompt_position = "bottom",
+				width = 0.95,
+			},
+			vertical = {
+				height = 0.95,
+				preview_cutoff = 0,
+				prompt_position = "bottom",
+				width = 0.95,
+			}
+		},
+	},
+	pickers = {
+		find_files = {
+			no_ignore = true
+		}
+	},
+	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown {}
+		}
+	}
 })
 
 
