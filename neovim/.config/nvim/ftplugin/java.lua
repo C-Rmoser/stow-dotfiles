@@ -173,3 +173,9 @@ vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._comple
 vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
 vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
 vim.cmd "command! -buffer JdtRefreshDebugConfigs lua require('jdtls.dap').setup_dap_main_class_configs()"
+
+-- Options to comply with wwi jdtls formatter
+vim.opt.tabstop = 4
+vim.opt.expandtab = false
+vim.opt.shiftwidth = 0
+vim.opt.softtabstop = 4
