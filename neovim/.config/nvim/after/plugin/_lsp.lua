@@ -94,10 +94,11 @@ local kind_icons = {
 
 lsp.setup_nvim_cmp({
     sources = {
-        { name = 'luasnip',  keyword_length = 2 },
-        { name = 'nvim_lsp', keyword_length = 1 },
-        { name = 'path' },
-        { name = 'buffer',   keyword_length = 4 },
+        { name = 'luasnip',  keyword_length = 2, max_item_count = 3 },
+        { name = 'nvim_lsp', keyword_length = 1, max_item_count = 15 },
+        { name = 'path',     max_item_count = 2 },
+        { name = 'buffer',   keyword_length = 4, max_item_count = 2 },
+
     },
     mapping = lsp.defaults.cmp_mappings({
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
