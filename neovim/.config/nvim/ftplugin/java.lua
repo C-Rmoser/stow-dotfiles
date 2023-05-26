@@ -51,7 +51,9 @@ local on_attach = function(_, bufnr)
 	nnoremap("<leader>ro", jdtls.organize_imports, bufopts, "Organize imports")
 	nnoremap("<leader>tda", jdtls.test_class, bufopts, "Debug test class")
 	nnoremap("<leader>tdn", jdtls.test_nearest_method, bufopts, "Debug nearest test method")
+    vim.keymap.set('n', '<Leader>tdl', function() require('dap').run_last() end)
 	nnoremap("<leader>tn", "<CMD>TestNearest -Pwwi<CR>", bufopts, "Test nearest method")
+	nnoremap("<leader>tl", "<CMD>TestLast <CR>", bufopts, "Test nearest method")
 	nnoremap("<leader>ta", "<CMD>TestFile -Pwwi<CR>", bufopts, "Test nearest method")
 	nnoremap('<space>rc',
 		function() vim.lsp.buf.format { formatting_options = { insertSpaces = false }, async = true } end,
