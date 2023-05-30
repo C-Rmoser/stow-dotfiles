@@ -17,7 +17,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Lua
+    use 'Mofiqul/vscode.nvim'
+
     use {
         "folke/zen-mode.nvim",
         config = function()
