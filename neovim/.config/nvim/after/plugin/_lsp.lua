@@ -98,14 +98,16 @@ lsp.setup_nvim_cmp({
         { name = 'nvim_lsp', keyword_length = 1, max_item_count = 15 },
         { name = 'path',     max_item_count = 2 },
         { name = 'buffer',   keyword_length = 4, max_item_count = 2 },
-
     },
     mapping = lsp.defaults.cmp_mappings({
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-    }),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.complete({
+                reason = cmp.ContextReason.Manual,
+              }), {"i", "c"}),
+            }),
     formatting = {
         format = function(entry, vim_item)
-            vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+            vim_item.abbr = string.sub(vim_item.abbr, 1, 30)
             -- Kind icons
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             -- Source
