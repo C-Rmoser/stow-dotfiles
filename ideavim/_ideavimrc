@@ -19,7 +19,7 @@ set showmode
 set so=5
 set incsearch
 set nu
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set ignorecase                          " Ignore case when searching in file
 set smartcase                           " Case sensitive search when using uppercase letters
 set nohlsearch                          " Don't leave results highlighted after pressing enter
@@ -51,6 +51,11 @@ nnoremap gcc :action CommentByLineComment<CR>
 vnoremap gc :action CommentByLineComment<CR>
 
 nmap <leader>dd <Action>(Debug)
+nmap <leader>drc <Action>(RunToCursor)
+nmap <leader>dc <Action>(Resume)
+nmap <leader>dx <Action>(EvaluateExpression)
+vmap <leader>dx <Action>(EvaluateExpression)
+
 nmap <leader>ds <Action>(Stop)
 nmap <leader>dnr <Action>(Run)
 nmap <leader>dnb <Action>(BuildButton)
@@ -88,7 +93,6 @@ nmap <leader>e <Action>(ActivateProjectToolWindow)
 " Tabs
 nmap <leader>wa <Action>(CloseAllEditorsButActive)
 nmap <leader>ww <Action>(CloseEditor)
-nmap <leader>q <Action>(CloseEditor)
 nmap <leader>wc <Action>(HideAllWindows)
 
 " Go to next / previous tab
@@ -149,7 +153,6 @@ nnoremap <leader>ro :action OptimizeImports<CR>
 nnoremap <leader>ta :action RunClass<CR>
 nnoremap <leader>tf :action RerunFailedTests<CR>
 nnoremap <leader>tl :action Rerun<CR>
-" nnoremap <leader>tc :action RunClass<CR>
 
 nnoremap <leader>l :action RecentLocations<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
@@ -158,11 +161,10 @@ nnoremap <leader>gr :action FindUsages<CR>
 nnoremap <leader>gt :action GotoTest<CR>
 nnoremap <leader>gc :action GotoClass<CR>
 nnoremap <leader>fs :action FileStructurePopup<CR>
-" nnoremap gp :action GotToSuperMethod<CR>
-nnoremap gt :action GotoTest<CR>
-" nnoremap gb :action Back<CR>
-" nnoremap gf :action Forward<CR>
+nnoremap <leader>gq :action QuickImplementations<CR>
+
 nnoremap <leader>gp :action SelectInProjectView<CR>
+nnoremap <leader>wr :action ActivateRunToolWindow<CR>
 
 nnoremap ge :action GotoNextError<CR>
 nnoremap gE :action GotoPreviousError<CR>
