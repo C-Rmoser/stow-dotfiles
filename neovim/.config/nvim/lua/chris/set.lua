@@ -6,7 +6,7 @@ augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
 		group = 'YankHighlight',
 		callback = function()
-		vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '50' })
+		vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '100' })
 		end
 })
 
@@ -45,3 +45,5 @@ vim.opt.updatetime = 800
 vim.opt.colorcolumn = "140"
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.opt.fixendofline = false
