@@ -162,6 +162,8 @@ alias ansibleconfig="nvim ~/ansible.yml"
 
 alias mvnrundev="mvn spring-boot:run -Pwwi -Ph2 -Dspring-boot.run.arguments=\"--spring.profiles.active=dev,dev-h2,dev-testdata\"mvn spring-boot:run -Pwwi -Ph2 -Dspring-boot.run.arguments=\"--spring.profiles.active=dev,dev-h2,dev-testdata\""
 alias mvnwwi="mvn -Pwwi -P'!deploy-package' -P'!docker'"
+alias mvnrundev="mvn spring-boot:run -Dspring-boot.run.profiles=dev"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
