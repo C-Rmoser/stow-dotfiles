@@ -12,7 +12,6 @@ lsp.ensure_installed({
     'rust_analyzer',
     'angularls',
     'cssls',
-    'emmet_ls'
 })
 
 lsp.skip_server_setup({ 'jdtls' })
@@ -22,6 +21,12 @@ require 'lspconfig'.tsserver.setup {
         client.resolved_capabilities.document_formatting = false
     end,
 }
+
+require 'lspconfig'.tailwindcss.setup {}
+
+local lspconfig = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua_ls', {
@@ -94,17 +99,28 @@ local kind_icons = {
 
 lsp.setup_nvim_cmp({
     sources = {
-        { name = 'luasnip',  keyword_length = 2, max_item_count = 3 },
         { name = 'nvim_lsp', keyword_length = 1, max_item_count = 15 },
+        { name = 'luasnip',  keyword_length = 2, max_item_count = 3 },
         { name = 'path',     max_item_count = 2 },
         { name = 'buffer',   keyword_length = 4, max_item_count = 2 },
+    },
+    sorting = {
+        comparators = {
+            cmp.config.compare.score,
+            cmp.config.compare.offset,
+            -- cmp.config.compare.order,
+            -- cmp.config.compare.exact,
+            -- cmp.config.compare.sort_text,
+            -- cmp.config.compare.kind,
+            -- cmp.config.compare.length,
+        }
     },
     mapping = lsp.defaults.cmp_mappings({
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ["<C-k>"] = cmp.mapping(cmp.mapping.complete({
-                reason = cmp.ContextReason.Manual,
-              }), {"i", "c"}),
-            }),
+            reason = cmp.ContextReason.Manual,
+        }), { "i", "c" }),
+    }),
     formatting = {
         format = function(entry, vim_item)
             vim_item.abbr = string.sub(vim_item.abbr, 1, 30)
