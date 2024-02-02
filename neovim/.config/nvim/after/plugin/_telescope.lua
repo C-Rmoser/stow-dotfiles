@@ -66,5 +66,4 @@ vim.keymap.set('n', '<leader>gs', showSymbolFinder, {})
 vim.keymap.set('n', '<leader>gd', builtin.diagnostics, {})
 
 
-require("telescope").load_extension('harpoon')
 require("telescope").load_extension("ui-select")

@@ -10,7 +10,7 @@ autocmd('TextYankPost', {
 		end
 })
 
-vim.o.guicursor = 'i:block'
+-- vim.o.guicursor = 'i:block'
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -47,3 +47,5 @@ vim.opt.colorcolumn = "140"
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.fixendofline = false
+
+vim.opt.textwidth = 0

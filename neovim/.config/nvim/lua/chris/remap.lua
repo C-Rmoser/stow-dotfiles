@@ -54,7 +54,7 @@ vim.keymap.set("n", "ss", "dd")
 vim.keymap.set("n", "S", "D")
 
 vim.keymap.set("n", "<leader>wt", "<C-6>")
-vim.keymap.set("n", "<leader>ww", "<cmd>bd<CR>")
+vim.keymap.set("n", "<leader>ww", "<cmd>:Bdelete<CR>")
 vim.keymap.set("n", "<leader>b", ":b ")
 
 -- Maintain the cursor position when yanking a visual selection
@@ -69,6 +69,3 @@ vim.keymap.set("v", "v", ">")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>gp", "<cmd>NvimTreeFindFile<CR>")
-
--- Toggle zen mode
-vim.keymap.set("n", "<leader>zm", "<cmd>ZenMode<CR>")

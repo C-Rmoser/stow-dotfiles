@@ -19,19 +19,7 @@ return require('packer').startup(function(use)
 
     use 'Mofiqul/vscode.nvim'
 
-    use {
-        "folke/zen-mode.nvim",
-        config = function()
-            require("zen-mode").setup {
-                window = {
-                    backdrop = 1,
-                    width = 180,
-                },
-            }
-        end
-    }
-
-    use 'sainnhe/everforest'
+    use 'famiu/bufdelete.nvim'
 
     use {
         'nvim-treesitter/nvim-treesitter-refactor',
@@ -97,27 +85,7 @@ return require('packer').startup(function(use)
 
     use { 'nvim-telescope/telescope-ui-select.nvim' }
 
-    use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            require("rose-pine").setup({
-                dark_variant = 'moon',
-                disable_italics = false,
-                disable_background = true,
-            })
-            vim.cmd('colorscheme rose-pine')
-        end
-    }
-
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-
-    use({
-        'ThePrimeagen/harpoon',
-        config = function()
-            require("harpoon").setup({})
-        end
-    })
 
     use('mbbill/undotree')
 
@@ -191,7 +159,7 @@ return require('packer').startup(function(use)
         requires = { "mfussenegger/nvim-dap" },
     }
 
-    use "antoinemadec/FixCursorHold.nvim"
+    -- use "antoinemadec/FixCursorHold.nvim"
 
     use "nvim-neotest/neotest-vim-test"
 
