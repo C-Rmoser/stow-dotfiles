@@ -167,6 +167,9 @@ nnoremap <leader>gq :action QuickImplementations<CR>
 
 nnoremap <leader>gp :action SelectInProjectView<CR>
 nnoremap <leader>wr :action ActivateRunToolWindow<CR>
+nnoremap <leader>ns :action NewScratchFile<CR>
 
 nnoremap ge :action GotoNextError<CR>
 nnoremap gE :action GotoPreviousError<CR>
+
+nnoremap <leader>fm :action ToggleDistractionFreeMode<CR>

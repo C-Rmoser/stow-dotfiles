@@ -33,8 +33,8 @@ require("telescope").setup({
 
 })
 
-local showSymbolFinder = function ()
-    local opts= {
+local showSymbolFinder = function()
+    local opts = {
         symbols = {
             "interface",
             "class",
@@ -51,7 +51,7 @@ end
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fa', builtin.find_files, {})
 vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
-vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
+vim.keymap.set('n', '<c-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
@@ -64,6 +64,5 @@ vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
 vim.keymap.set('n', '<leader>gr', builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>gs', showSymbolFinder, {})
 vim.keymap.set('n', '<leader>gd', builtin.diagnostics, {})
-
 
 require("telescope").load_extension("ui-select")
