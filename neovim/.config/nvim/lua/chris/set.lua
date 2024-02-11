@@ -10,7 +10,6 @@ autocmd('TextYankPost', {
 		end
 })
 
--- vim.o.guicursor = 'i:block'
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

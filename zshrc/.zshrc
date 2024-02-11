@@ -93,7 +93,7 @@ ZSH_THEME="robbyrussell"
 # export VI_MODE_SET_CURSOR=true
 
 source $ZSH/oh-my-zsh.sh
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+# source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # source /usr/share/doc/fzf/examples/completion.zsh
 # source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -170,10 +170,10 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 # local ww installation
-export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+# export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -188,3 +188,7 @@ if [ -f '/home/crohrmoser/google-cloud-sdk/path.zsh.inc' ]; then . '/home/crohrm
 if [ -f '/home/crohrmoser/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/crohrmoser/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH=$PATH:/home/crohrmoser/go/bin
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi

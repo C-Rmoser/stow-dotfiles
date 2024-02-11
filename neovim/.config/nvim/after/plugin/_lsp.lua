@@ -6,12 +6,12 @@ local lsp = require('lsp-zero').preset({
 })
 
 lsp.ensure_installed({
-    'tsserver',
-    'eslint',
+    --'tsserver',
+    --'eslint',
     'lua_ls',
     'rust_analyzer',
-    'angularls',
-    'cssls',
+    --'angularls',
+    --'cssls',
 })
 
 lsp.skip_server_setup({ 'jdtls' })
