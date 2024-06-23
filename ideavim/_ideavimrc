@@ -5,11 +5,11 @@ let mapleader=" "
 set surround
 set multiple-cursors
 set NERDTree
-" set ReplaceWithRegister
 set vim-paragraph-motion
 set highlightedyank
 set commentary
 set textobj-entire
+set which-key
 
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"
@@ -35,6 +35,8 @@ set ideastatusicon=gray
 set idearefactormode=keep
 set idearefactormode=select
 
+set timeoutlen=5000
+
 nmap n nzz
 nmap N Nzz
 
@@ -45,8 +47,6 @@ imap jk <Esc>
 nmap Y y$
 
 map <leader>sm :source ~/_ideavimrc<CR> 
-" nmap <C-o> :action JumpToLastChange <CR>
-" nmap <C-i> :action JumpToNextChange <CR>
 
 nnoremap gcc :action CommentByLineComment<CR>
 vnoremap gc :action CommentByLineComment<CR>

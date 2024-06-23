@@ -164,6 +164,8 @@ alias mvnrundev="mvn spring-boot:run -Pwwi -Ph2 -Dspring-boot.run.arguments=\"--
 alias mvnwwi="mvn -Pwwi -P'!deploy-package' -P'!docker'"
 alias mvnrundev="mvn spring-boot:run -Dspring-boot.run.profiles=dev"
 
+alias k=kubectl
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
