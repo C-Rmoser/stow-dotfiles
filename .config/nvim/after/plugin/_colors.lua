@@ -6,7 +6,7 @@ function ColorMyPencils(color)
 	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
 
-    require('vscode').load('dark')
+    -- require('vscode').load('dark')
 end
 
 -- Lua:
@@ -36,4 +36,4 @@ vim.o.background = 'light'
 --         Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
 --     }
 -- })
-ColorMyPencils()
+ColorMyPencils('onedark')

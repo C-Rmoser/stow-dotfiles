@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
 
     use 'Mofiqul/vscode.nvim'
 
+    -- Packer
+    use "olimorris/onedarkpro.nvim"
+
     use 'famiu/bufdelete.nvim'
 
     use {
