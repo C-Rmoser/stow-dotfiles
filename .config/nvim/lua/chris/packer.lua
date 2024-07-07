@@ -47,8 +47,6 @@ return require('packer').startup(function(use)
 
     use 'nvim-lua/popup.nvim'
 
-    use 'mfussenegger/nvim-jdtls'
-
     use {
         "windwp/nvim-autopairs",
         config = function()
@@ -73,23 +71,17 @@ return require('packer').startup(function(use)
     use
     {
         'akinsho/bufferline.nvim',
-        tag = "v3.*",
         requires = 'nvim-tree/nvim-web-devicons',
     }
 
     use {
         'nvim-telescope/telescope.nvim',
-        -- tag = '0.1.1',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     use { 'nvim-telescope/telescope-ui-select.nvim' }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-
-    use('mbbill/undotree')
-
-    use('tpope/vim-fugitive')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -134,7 +126,6 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons',
         },
-        tag = 'nightly'
     }
 
     use { 'mfussenegger/nvim-dap' }
@@ -158,24 +149,6 @@ return require('packer').startup(function(use)
         tag = 'v3.6.3',
         requires = { "mfussenegger/nvim-dap" },
     }
-
-    -- use "antoinemadec/FixCursorHold.nvim"
-
-    -- use "nvim-neotest/neotest-vim-test"
-
-    -- use {
-    --     "nvim-neotest/neotest",
-    --     requires = {
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-treesitter/nvim-treesitter",
-    --         "antoinemadec/FixCursorHold.nvim",
-    --         "haydenmeade/neotest-jest"
-    --     },
-    -- }
-
-    use "rouge8/neotest-rust"
-
-    use "vim-test/vim-test"
 
     use {
         "karb94/neoscroll.nvim",
