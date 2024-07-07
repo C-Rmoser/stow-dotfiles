@@ -12,6 +12,7 @@ lsp.ensure_installed({
     'rust_analyzer',
     'angularls',
     'cssls',
+    'zls',
 })
 
 lsp.skip_server_setup({ 'jdtls' })
