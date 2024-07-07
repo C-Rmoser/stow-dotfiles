@@ -171,9 +171,6 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
 # local ww installation
 export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 
