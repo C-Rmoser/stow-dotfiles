@@ -102,6 +102,8 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 export FZF_DEFAULT_COMMAND='fdfind --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
 
+export PATH=$PATH:~/tools/zig/
+
 # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 
