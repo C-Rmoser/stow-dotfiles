@@ -17,27 +17,19 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use 'Mofiqul/vscode.nvim'
+    -- Color schemes
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { 'sainnhe/everforest' }
 
-    -- Packer
-    use "olimorris/onedarkpro.nvim"
-
-    use 'famiu/bufdelete.nvim'
-
+    -- Use my plugin
     use {
-        'nvim-treesitter/nvim-treesitter-refactor',
+        '/home/crohrmoser/personal/git/simple-cloud-notes.nvim',
         config = function()
-            require 'nvim-treesitter.configs'.setup {
-                refactor = {
-                    highlight_definitions = {
-                        enable = true,
-                        -- Set to false if you have an `updatetime` of ~100.
-                        clear_on_cursor_move = true,
-                    },
-                },
-            }
+            require("simple-cloud-notes").setup()
         end
     }
+
+    use 'famiu/bufdelete.nvim'
 
     use 'christoomey/vim-tmux-navigator'
 
@@ -65,14 +57,13 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function()
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function ()
             require('lualine').setup()
         end
     }
 
-    use
-    {
+    use {
         'akinsho/bufferline.nvim',
         tag = "*",
         requires = 'nvim-tree/nvim-web-devicons',
@@ -157,4 +148,5 @@ return require('packer').startup(function(use)
     use {
         "karb94/neoscroll.nvim",
     }
+
 end)
