@@ -12,6 +12,9 @@ map("i", "<C-s>", "<Esc>:w<CR>")
 map("n", "<C-s>", ":w<CR>")
 map("n", "<leader>q", ":q!<CR>")
 
+-- Do change copy register when copying in visual mode
+map("v", 'p', '"_dP')
+
 -- make current file executable
 map("n", "<leader>x", ":!chmod +x %<CR>")
 map("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
