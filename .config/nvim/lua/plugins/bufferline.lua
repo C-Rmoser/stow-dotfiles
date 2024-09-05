@@ -1,12 +1,13 @@
 return {
-    'akinsho/bufferline.nvim', version = "*",
+    'akinsho/bufferline.nvim',
+    version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
         require("bufferline").setup({
             highlights = {
                 offset_separator = {
                     fg = '#495156',
-                    bg = '#272E33'
+                    bg = '#181825'
                 },
             },
             options = {
@@ -40,6 +41,7 @@ return {
         vim.keymap.set('n', '<leader><', '<Cmd>BufferLineMovePrev<CR>', { noremap = true, silent = true })
         vim.keymap.set('n', '<leader>>', '<Cmd>BufferLineMoveNext<CR>', { noremap = true, silent = true })
 
-        vim.keymap.set('n', '<leader>wa', '<Cmd>BufferLineCloseRight<CR><Cmd>BufferLineCloseLeft<CR>', { noremap = true, silent = true })
+        vim.keymap.set('n', '<leader>wa', '<Cmd>BufferLineCloseRight<CR><Cmd>BufferLineCloseLeft<CR>',
+            { noremap = true, silent = true })
     end
 }

@@ -1,4 +1,3 @@
-local global = vim.g
 local o = vim.opt
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
