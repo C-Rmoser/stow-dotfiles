@@ -1,6 +1,6 @@
 return {
     {
-       'VonHeikemen/lsp-zero.nvim',
+        'VonHeikemen/lsp-zero.nvim',
         branch = 'v4.x',
         lazy = true,
         config = false,
@@ -20,6 +20,9 @@ return {
                 'L3MON4D3/LuaSnip',
                 version = "v2.*",
                 dependencies = {
+                    'hrsh7th/cmp-buffer',
+                    'hrsh7th/cmp-path',
+                    'saadparwaiz1/cmp_luasnip',
                     'rafamadriz/friendly-snippets'
                 }
             },
@@ -54,7 +57,9 @@ return {
                 TypeParameter = '  ',
             }
 
+            local lsp_zero = require('lsp-zero')
             local cmp = require('cmp')
+            local cmp_action = lsp_zero.cmp_action()
             local luasnip = require("luasnip")
 
             require("luasnip.loaders.from_vscode").lazy_load()
@@ -64,10 +69,10 @@ return {
 
             cmp.setup({
                 sources = {
-                    { name = 'luasnip',  keyword_length = 2, max_item_count = 3 },
-                    { name = 'nvim_lsp', keyword_length = 1, max_item_count = 15 },
-                    { name = 'path',     max_item_count = 2 },
-                    { name = 'buffer',   keyword_length = 4, max_item_count = 2 },
+                    { name = 'path', },
+                    { name = 'luasnip', keyword_length = 2 },
+                    { name = 'nvim_lsp' },
+                    { name = 'buffer',  keyword_length = 4 },
                 },
                 sorting = {
                     comparators = {
@@ -76,8 +81,7 @@ return {
                     }
                 },
                 mapping = {
-                    ["<C-L"] = cmp.mapping(function() luasnip.jump(1) end, { "i", "s" }),
-                    ["<C-J"] = cmp.mapping(function() luasnip.jump(-1) end, { "i", "s" }),
+                    -- confirm completion item
                     ['<Tab>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             if luasnip.expandable() then
@@ -91,6 +95,34 @@ return {
                             fallback()
                         end
                     end),
+                    ['<CR>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            if luasnip.expandable() then
+                                luasnip.expand()
+                            else
+                                cmp.confirm({
+                                    select = true,
+                                })
+                            end
+                        else
+                            fallback()
+                        end
+                    end),
+
+                    -- scroll up and down the documentation window
+                    ['<C-n>'] = cmp.mapping.select_next_item(),
+                    ['<C-p>'] = cmp.mapping.select_prev_item(),
+
+                    -- trigger completion menu
+                    ['<C-k>'] = cmp.mapping.complete(),
+
+                    -- scroll up and down the documentation window
+                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+                    -- navigate between snippet placeholders
+                    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+                    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
                 },
                 snippet = {
                     expand = function(args)
