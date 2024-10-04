@@ -195,7 +195,7 @@ return {
                     'ansiblels',
                     'html',
                     'cssls',
-                    'tsserver',
+                    'ts_ls',
                     'sqlls',
                 },
                 handlers = {
