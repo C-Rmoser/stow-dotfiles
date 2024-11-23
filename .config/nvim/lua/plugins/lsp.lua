@@ -216,7 +216,8 @@ return {
                         workspace = {
                             checkThirdParty = true,
                             library = {
-                                vim.env.VIMRUNTIME
+                                vim.env.VIMRUNTIME,
+                                "${3rd}/love2d/library",
                             }
                         }
                     }
