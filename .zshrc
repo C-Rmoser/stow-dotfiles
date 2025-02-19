@@ -156,6 +156,8 @@ alias tmuxreload="tmux source-file ~/.tmux.conf"
 alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
 
 alias vim="nvim"
+
+alias defold="~/tools/Defold/Defold"
 # alias vim="/home/crohrmoser/.local/bin/lvim"
 
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
