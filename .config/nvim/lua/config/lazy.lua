@@ -19,6 +19,9 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  change_detection = {
+    notify = false,  -- Disable notifications about updates
+  },
   spec = {
     -- import your plugins
     { import = "plugins" },
