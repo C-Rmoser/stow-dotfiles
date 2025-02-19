@@ -63,13 +63,14 @@ return {
             local luasnip = require("luasnip")
 
             require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
 
             cmp.setup({
                 sources = {
                     { name = 'path', },
                     { name = 'luasnip', keyword_length = 2 },
-                    { name = 'nvim_lsp' },
-                    { name = 'buffer',  keyword_length = 4 },
+                    { name = 'nvim_lsp', },
+                    { name = 'buffer', keyword_length = 4 },
                 },
                 sorting = {
                     comparators = {
@@ -219,7 +220,10 @@ return {
                                 vim.env.VIMRUNTIME,
                                 "${3rd}/love2d/library",
                             }
-                        }
+                        },
+                        completion = {
+                            callSnippet = "Both"
+                        },
                     }
                 }
             }
