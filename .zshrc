@@ -137,8 +137,8 @@ export PATH=$PATH:~/tools/zig/
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 function edit_neovim_config {
-    cd ~/.config/nvim/
-    nvim ~/.config/nvim/lua/chris/packer.lua
+    cd ~/dotfiles/.config/nvim/
+    nvim
 }
 
 bindkey -s ^f "tmux-sessionizer\n"
