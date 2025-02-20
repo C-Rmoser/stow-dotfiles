@@ -124,7 +124,7 @@ return {
                 },
                 snippet = {
                     expand = function(args)
-                        vim.snippet.expand(args.body)
+                        luasnip.lsp_expand(args.body)
                     end,
                 },
                 formatting = {
