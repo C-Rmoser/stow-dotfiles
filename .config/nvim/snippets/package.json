@@ -1,0 +1,13 @@
+{
+  "name": "custom-snippets",
+  "version": "1.0.0",
+  "description": "My custom LuaSnip snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      }
+    ]
+  }
+}

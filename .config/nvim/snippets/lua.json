@@ -1,0 +1,65 @@
+{
+    "Message Callback": {
+        "prefix": "on_message",
+        "description": "Message Callback",
+        "body": [
+            "function on_message(${2:self}, ${3:message_id}, ${4:message}, ${5:sender})",
+            "   ${0}",
+            "end"
+        ]
+    },
+    "Lua Init Function": {
+        "prefix": "init",
+        "body": [
+            "function init(${1:self})",
+            "   ${0}",
+            "end"
+        ],
+        "description": "Defold init function"
+    },
+    "Lua Final Function": {
+        "prefix": "final",
+        "body": [
+            "function final(${1:self})",
+            "   ${0}",
+            "end"
+        ],
+        "description": "Defold final function"
+    },
+    "Lua Update Function": {
+        "prefix": "update",
+        "body": [
+            "function update(${1:self}, ${2:dt})",
+            "   ${0}",
+            "end"
+        ],
+        "description": "Defold update function"
+    },
+    "Lua Fixed Update Function": {
+        "prefix": "fixed_update",
+        "body": [
+            "function fixed_update(${1:self}, ${2:dt})",
+            "   ${0}",
+            "end"
+        ],
+        "description": "Defold fixed update function"
+    },
+    "Lua On Input Function": {
+        "prefix": "on_input",
+        "body": [
+            "function on_input(${1:self}, ${2:action_id}, ${3:action})",
+            "   ${0}",
+            "end"
+        ],
+        "description": "Defold on_input function"
+    },
+    "Lua On Reload Function": {
+        "prefix": "on_reload",
+        "body": [
+            "function on_reload(${1:self})",
+            "   ${0}",
+            "end"
+        ],
+        "description": "Defold on_reload function"
+    }
+}
