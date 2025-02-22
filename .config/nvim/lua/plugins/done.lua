@@ -1,10 +1,8 @@
 return {
-   "monkoose/DoNe",
-   lazy = true,
-   -- optional configuration
-   config = function()
-      -- as example adding some keybindings
-      vim.keymap.set("n", "<leader>dnr", "<Cmd>DoNe build<CR>")
-      --- ...
-   end,
+    "monkoose/DoNe",
+    lazy = true,
+    config = function()
+        vim.keymap.set("n", "<leader>dnr", "<Cmd>DoNe reload<CR>")
+        vim.keymap.set("n", "<leader>dnb", "<Cmd>DoNe build<CR>")
+    end
 }

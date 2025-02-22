@@ -58,4 +58,3 @@ map("n", "<leader>b", ":b ")
 -- Maintain the cursor position when yanking a visual selection
 map("v", "y", "myy`y")
 map("v", "Y", "myY`y")
-
