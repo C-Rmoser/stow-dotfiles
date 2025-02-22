@@ -4,8 +4,25 @@ return {
         branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
+            -- Set filetypes of script files to make highlighting in preview window work
+            local previewers = require("telescope.previewers")
+
+            local new_maker = function(filepath, bufnr, opts)
+                opts = opts or {}
+
+                -- Force `.script` files to use Lua highlighting in preview
+                if filepath:match("%.script$") or filepath:match("%.gui_script$") then
+                    vim.schedule(function()
+                        vim.bo[bufnr].filetype = "lua"
+                    end)
+                end
+
+                previewers.buffer_previewer_maker(filepath, bufnr, opts)
+            end
+
             require("telescope").setup({
                 defaults = {
+                    buffer_previewer_maker = new_maker,
                     layout_strategy = "flex",
                     path_display = { "truncate", truncate = 2 },
                     layout_config = {
