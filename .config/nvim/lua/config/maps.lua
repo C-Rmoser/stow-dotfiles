@@ -52,7 +52,7 @@ map("n", "<C-k>", "<C-w>k")
 
 -- Buffer mappings
 map("n", "<leader>wt", "<C-6>")
-map("n", "<leader>ww", "<cmd>:Bdelete<CR>")
+map("n", "<leader>ww", "<cmd>:bd<CR>")
 map("n", "<leader>b", ":b ")
 
 -- Maintain the cursor position when yanking a visual selection
