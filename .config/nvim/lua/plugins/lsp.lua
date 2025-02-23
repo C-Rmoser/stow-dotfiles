@@ -68,9 +68,9 @@ return {
             cmp.setup({
                 sources = {
                     { name = 'path', },
-                    { name = 'luasnip', keyword_length = 2 },
+                    { name = 'luasnip',  keyword_length = 2 },
                     { name = 'nvim_lsp', },
-                    { name = 'buffer', keyword_length = 4 },
+                    { name = 'buffer',   keyword_length = 4 },
                 },
                 sorting = {
                     comparators = {
@@ -212,7 +212,9 @@ return {
                 settings = {
                     Lua = {
                         diagnostics = {
-                            globals = { 'vim' }
+                            globals = { 'vim' },
+                            disable = { "lowercase-global" }
+
                         },
                         workspace = {
                             checkThirdParty = true,
