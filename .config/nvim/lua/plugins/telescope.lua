@@ -1,3 +1,4 @@
+-- make sure to install ripgrep for live_grep to work
 return {
     {
         'nvim-telescope/telescope.nvim',
@@ -78,7 +79,7 @@ return {
             vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
             vim.keymap.set('n', '<c-p>', builtin.git_files, {})
             vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
+            vim.keymap.set('n', '<leader>fl', builtin.oldfiles, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
             vim.keymap.set('n', '<leader>fc', builtin.commands, {})
             vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
