@@ -174,7 +174,17 @@ return {
                 vim.keymap.set("i", "<C-Space>", function() vim.lsp.buf.signature_help() end, opts)
 
                 vim.keymap.set("n", "<leader>dw", "<Cmd>lua require('dapui').eval()<CR>")
-                vim.diagnostic.config({ virtual_text = true, signs = false, underline = false });
+                vim.diagnostic.config({
+                    virtual_text = true,
+                    signs = false,
+                    underline = false,
+                });
+
+                vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+                    vim.lsp.handlers.hover,
+                    { border = "rounded" }
+                )
+
                 vim.keymap.set('n', '<leader>rc', function()
                     vim.lsp.buf.format { async = true }
                 end, opts)
