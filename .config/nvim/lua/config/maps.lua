@@ -58,3 +58,11 @@ map("n", "<leader>b", ":b ")
 -- Maintain the cursor position when yanking a visual selection
 map("v", "y", "myy`y")
 map("v", "Y", "myY`y")
+
+-- File type specific mappings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.keymap.set("n", "<leader>dnr", "<cmd>!go run .<CR>", { buffer = true })
+  end,
+})
