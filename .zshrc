@@ -94,6 +94,7 @@ ZSH_THEME="robbyrussell"
 
 source $ZSH/oh-my-zsh.sh
 source "$HOME/.sdkman/bin/sdkman-init.sh"
+source <(kubectl completion zsh)
 
 # source /usr/share/doc/fzf/examples/completion.zsh
 # source /usr/share/doc/fzf/examples/key-bindings.zsh
