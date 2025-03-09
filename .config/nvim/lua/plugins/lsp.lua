@@ -66,6 +66,7 @@ return {
             require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
 
             cmp.setup({
+                preselect = cmp.PreselectMode.None,
                 sources = {
                     { name = 'path', },
                     { name = 'luasnip',  keyword_length = 2 },
